@@ -1,0 +1,32 @@
+{
+  "eventName": "Squid Game - Code. Think. Survive.",
+  "round1Forms": [
+    "https://forms.gle/FORM1",
+    "https://forms.gle/FORM2",
+    "https://forms.gle/FORM3",
+    "https://forms.gle/FORM4"
+  ],
+  "round2Shapes": {
+    "circle": "https://www.hackerrank.com/CHALLENGE_CIRCLE",
+    "triangle": "https://www.hackerrank.com/CHALLENGE_TRIANGLE",
+    "star": "https://www.hackerrank.com/CHALLENGE_STAR",
+    "umbrella": "https://www.hackerrank.com/CHALLENGE_UMBRELLA"
+  },
+  "round4": {
+    "safe": [
+      "https://www.hackerrank.com/SAFE1",
+      "https://www.hackerrank.com/SAFE2",
+      "https://www.hackerrank.com/SAFE3",
+      "https://www.hackerrank.com/SAFE4",
+      "https://www.hackerrank.com/SAFE5"
+    ],
+    "risky": [
+      "https://www.hackerrank.com/RISKY1",
+      "https://www.hackerrank.com/RISKY2",
+      "https://www.hackerrank.com/RISKY3",
+      "https://www.hackerrank.com/RISKY4",
+      "https://www.hackerrank.com/RISKY5"
+    ]
+  },
+  "adminEmails": ["challagurulohith@gmail.com", "gfg@gmail.com"]
+}
