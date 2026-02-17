@@ -35,6 +35,15 @@ export default function Login() {
       return setErr("Wrong event password.");
     }
 
+    const adminEmails = (config.adminEmails || []).map(normalizeEmail);
+    const participantEmails =
+      (config.participantEmails || config.allowedEmails || []).map(normalizeEmail);
+    const allowedEmails = new Set([...adminEmails, ...participantEmails]);
+
+    if (!allowedEmails.has(eMail)) {
+      return setErr("This email is not registered for this event.");
+    }
+
     setLoading(true);
     try {
       let cred;
