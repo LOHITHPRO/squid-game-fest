@@ -169,7 +169,7 @@ export default function Dashboard() {
       {/* STAGE 3: Round 3 only */}
       {stage === 3 && (
         <div className="grid2">
-          <GlassCard title="Round 3 — Glass Bridge" subtitle="5 steps. Choose Safe or Risky before seeing the question.">
+          <GlassCard title="Round 3 — Glass Bridge" subtitle="5 steps. Choose Tail 1 or Tail 2 — questions are random.">
             {!me.round2Completed ? (
               <Banner mode="red" title="Not eligible" detail="You must complete Round 2 first (admin verification required)." />
             ) : !eventState.round3Enabled ? (
@@ -182,10 +182,10 @@ export default function Dashboard() {
                   <Banner mode="green" title="✅ Completed" detail="You have crossed all 5 steps." />
                 ) : (
                   <>
-                    <Banner mode="idle" title="Make your choice" detail="Safe = Easy, Risky = Hard. Scoring handled by admin." />
+                    <Banner mode="idle" title="Make your choice" detail="Pick Tail 1 or Tail 2. Questions are random." />
                     <div className="row">
-                      <Btn variant="safe" onClick={() => pickGlass("safe")}>🟩 Safe</Btn>
-                      <Btn variant="risk" onClick={() => pickGlass("risky")}>🟥 Risky</Btn>
+                      <Btn onClick={() => pickGlass("safe")}>Tail 1</Btn>
+                      <Btn onClick={() => pickGlass("risky")}>Tail 2</Btn>
                     </div>
                   </>
                 )}
@@ -209,7 +209,7 @@ export default function Dashboard() {
                     }}
                   >
                     <div>
-                      Step {c.step}: <b>{String(c.choice).toUpperCase()}</b>
+                      Step {c.step}: <b>{c.choice === "safe" ? "Tail 1" : "Tail 2"}</b>
                     </div>
                     <a href={c.link} target="_blank" rel="noreferrer">
                       open
