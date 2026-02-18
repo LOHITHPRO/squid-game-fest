@@ -95,6 +95,7 @@ export default function Admin() {
             <Btn onClick={() => setActiveForm(2)}>Form 2</Btn>
             <Btn onClick={() => setActiveForm(3)}>Form 3</Btn>
             <Btn onClick={() => setActiveForm(4)}>Form 4</Btn>
+            <Btn onClick={() => setActiveForm(5)}>Form 5</Btn>
           </div>
 
           <div style={{ marginTop: 12 }}>
