@@ -50,7 +50,7 @@ export default function Admin() {
   const setActiveForm = async (n) => updateDoc(doc(db, "eventState", "current"), { activeForm: n });
   const setStage = async (n) => updateDoc(doc(db, "eventState", "current"), { stage: n });
   const enableRound2 = async (v) => updateDoc(doc(db, "eventState", "current"), { round2Enabled: v });
-  const enableRound4 = async (v) => updateDoc(doc(db, "eventState", "current"), { round4Enabled: v });
+  const enableRound3 = async (v) => updateDoc(doc(db, "eventState", "current"), { round3Enabled: v });
 
   const toggleRound2Completed = async (participantId, currentVal) => {
     await updateDoc(doc(db, "participants", participantId), { round2Completed: !currentVal });
@@ -65,7 +65,7 @@ export default function Admin() {
   return (
     <Page
       title="Admin Control Room"
-      subtitle="Stage controls what players can see. Mark Round 2 completion to unlock Round 4 eligibility."
+      subtitle="Stage controls what players can see. Mark Round 2 completion to unlock Round 3 eligibility."
       right={
         <>
           <Pill tone="pink">ADMIN</Pill>
@@ -114,14 +114,14 @@ export default function Admin() {
                 ? "Players see ONLY Round 1."
                 : stage === 2
                 ? "Players see ONLY Round 2."
-                : "Players see ONLY Round 4 (eligible players only)."
+                : "Players see ONLY Round 3 (eligible players only)."
             }
           />
 
           <div className="row">
             <Btn onClick={() => setStage(1)}>Stage 1</Btn>
             <Btn onClick={() => setStage(2)}>Stage 2</Btn>
-            <Btn onClick={() => setStage(4)}>Stage 4</Btn>
+            <Btn onClick={() => setStage(3)}>Stage 3</Btn>
           </div>
 
           <div style={{ marginTop: 14 }}>
@@ -134,9 +134,9 @@ export default function Admin() {
             </div>
 
             <div className="row">
-              <Btn variant="safe" onClick={() => enableRound4(true)}>Enable Round 4</Btn>
-              <Btn variant="risk" onClick={() => enableRound4(false)}>Pause Round 4</Btn>
-              <Pill tone="green">R4: {String(!!eventState.round4Enabled)}</Pill>
+              <Btn variant="safe" onClick={() => enableRound3(true)}>Enable Round 3</Btn>
+              <Btn variant="risk" onClick={() => enableRound3(false)}>Pause Round 3</Btn>
+              <Pill tone="green">R3: {String(!!eventState.round3Enabled)}</Pill>
             </div>
           </div>
         </GlassCard>
@@ -145,7 +145,7 @@ export default function Admin() {
       <div style={{ marginTop: 16 }}>
         <GlassCard
           title="Leaderboard + Round 2 Verification"
-          subtitle="Toggle Round 2 completed for each participant, then switch stage to 4."
+          subtitle="Toggle Round 2 completed for each participant, then switch stage to 3."
         >
           <div style={{ display: "grid", gap: 10 }}>
             {people.map((p) => (

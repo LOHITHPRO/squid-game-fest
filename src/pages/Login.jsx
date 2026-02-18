@@ -153,7 +153,7 @@ export default function Login() {
           <div style={{ height: 10 }} />
           <Banner mode="lock" title="Round 2" detail="Hidden until admin switches stage to Round 2." />
           <div style={{ height: 10 }} />
-          <Banner mode="lock" title="Round 4" detail="Hidden until admin switches stage to Round 4 + you are marked completed for Round 2." />
+          <Banner mode="lock" title="Round 3" detail="Hidden until admin switches stage to Round 3 + you are marked completed for Round 2." />
         </GlassCard>
       </div>
     </Page>

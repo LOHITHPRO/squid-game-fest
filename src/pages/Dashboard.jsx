@@ -59,9 +59,9 @@ export default function Dashboard() {
     const step = me.glassStep || 0;
     if (step >= 5) return;
 
-    const linkArr = choice === "safe" ? config.round4.safe : config.round4.risky;
+    const linkArr = choice === "safe" ? config.round3.safe : config.round3.risky;
     const link = linkArr?.[step];
-    if (!link) return alert("Missing round4 link in eventConfig.json");
+    if (!link) return alert("Missing round3 link in eventConfig.json");
 
     const newChoices = Array.isArray(me.glassChoices) ? [...me.glassChoices] : [];
     newChoices.push({ step: step + 1, choice, link });
@@ -112,7 +112,7 @@ export default function Dashboard() {
           <GlassCard title="Locked Rounds" subtitle="Next rounds unlock when admin switches stage.">
             <Banner mode="lock" title="Round 2" detail="Hidden until Stage 2." />
             <div style={{ height: 10 }} />
-            <Banner mode="lock" title="Round 4" detail="Hidden until Stage 4 and you complete Round 2." />
+            <Banner mode="lock" title="Round 3" detail="Hidden until Stage 3 and you complete Round 2." />
           </GlassCard>
         </div>
       )}
@@ -135,7 +135,7 @@ export default function Dashboard() {
                   <Banner
                     mode={me.round2Completed ? "green" : "idle"}
                     title={me.round2Completed ? "✅ Completed" : "Verification Pending"}
-                    detail={me.round2Completed ? "Wait for Stage 4 to begin." : "After finishing, wait for admin to mark completion."}
+                    detail={me.round2Completed ? "Wait for Stage 3 to begin." : "After finishing, wait for admin to mark completion."}
                   />
                 </div>
               </>
@@ -156,24 +156,24 @@ export default function Dashboard() {
             )}
           </GlassCard>
 
-          <GlassCard title="Round 4 Status" subtitle="Unlock condition">
+          <GlassCard title="Round 3 Status" subtitle="Unlock condition">
             <Banner
               mode={me.round2Completed ? "green" : "lock"}
-              title={me.round2Completed ? "Eligible for Round 4" : "Locked"}
-              detail={me.round2Completed ? "Wait for admin to switch stage to 4." : "Complete Round 2 and get verified by admin."}
+              title={me.round2Completed ? "Eligible for Round 3" : "Locked"}
+              detail={me.round2Completed ? "Wait for admin to switch stage to 3." : "Complete Round 2 and get verified by admin."}
             />
           </GlassCard>
         </div>
       )}
 
-      {/* STAGE 4: Round 4 only */}
-      {stage === 4 && (
+      {/* STAGE 3: Round 3 only */}
+      {stage === 3 && (
         <div className="grid2">
-          <GlassCard title="Round 4 — Glass Bridge" subtitle="5 steps. Choose Safe or Risky before seeing the question.">
+          <GlassCard title="Round 3 — Glass Bridge" subtitle="5 steps. Choose Safe or Risky before seeing the question.">
             {!me.round2Completed ? (
               <Banner mode="red" title="Not eligible" detail="You must complete Round 2 first (admin verification required)." />
-            ) : !eventState.round4Enabled ? (
-              <Banner mode="idle" title="Waiting" detail="Admin has not enabled Round 4 yet." />
+            ) : !eventState.round3Enabled ? (
+              <Banner mode="idle" title="Waiting" detail="Admin has not enabled Round 3 yet." />
             ) : (
               <>
                 <StepBar current={me.glassStep || 0} total={5} />
